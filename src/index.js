@@ -9,11 +9,16 @@ import reducers from './reducers';
 import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
 import PostsShow from './components/posts_show';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+const store = createStore(reducers, composeWithDevTools(
+  applyMiddleware(promise)
+));
+
+//const createStoreWithMiddleware = applyMiddleware(promise)(store);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <BrowserRouter>
       <div>
         <Switch>
