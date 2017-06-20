@@ -11,6 +11,8 @@ import PostsNew from './components/posts_new';
 import PostsShow from './components/posts_show';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 const store = createStore(reducers, composeWithDevTools(
   applyMiddleware(promise)
 ));
